@@ -51,6 +51,18 @@ You will need to change ownership of several files so that non-root users can us
 
 `chown -R $USER /etc/salt /var/cache/salt /var/log/salt /var/run/salt`
 
+###Key Management###
+Salt communication is encrypted. Minions generate keys and submit them to the master for acceptance, once the master accepts the keys communication can begin.
+
+On the master check what keys have been submitted/accepted/rejected
+`salt-key -L`
+
+You can either bulk or individually accept or reject keys
+Individually accept - `salt-key -a`
+Bulk accept - `salt-key -A`
+Individually reject - `salt-key -r`
+Bulk reject - `salt-key -R`
+
 ###Minion###
 * Edit `/etc/salt/minion`
 
