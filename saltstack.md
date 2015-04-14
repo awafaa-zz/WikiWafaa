@@ -45,7 +45,12 @@ Add the following to the bottom of the config file:
      keypath: '/etc/pki/tls/certs/localhost.key'  
      pempath: '/etc/pki/tls/certs/localhost.pem'  
 
-If you do not wish to use ssl, set 
+If you do not wish to use ssl, use `tls: False`
+
+You will need to change ownership of several files so that non-root users can use salt.
+
+`chown -R $USER /etc/salt /var/cache/salt /var/log/salt /var/run/salt`
+
 ###Minion###
 * Edit `/etc/salt/minion`
 
