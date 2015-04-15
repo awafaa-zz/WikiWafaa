@@ -46,7 +46,8 @@ Add the following to the bottom of the config file:
      keypath: '/etc/pki/tls/certs/localhost.key'  
      pempath: '/etc/pki/tls/certs/localhost.pem'  
 
-If you do not wish to use ssl, use `tls: False`
+* If you do not wish to use ssl, use `tls: False`
+* To bind to a specific IP instead of all available change `0.0.0.0` to whichever IP you want
 
 You will need to change ownership of several files so that non-root users can use salt.
 
