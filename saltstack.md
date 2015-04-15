@@ -13,13 +13,13 @@ All configuration files are stored in `/etc/salt`
 ###Master###
 * Edit `/etc/salt/master`
 
-Ports `4505` & `4506` need to be opened on the -master host firewall
+Ports `4505` & `4506` need to be opened on the master firewall
 
 To start the master service
 Either `systemctl start salt-master` or `rcsalt-master start`
 Enable the master service to start at boot `systemctl enable salt-master.service`
 
-####WebUI####
+###WebUI###
 The current WebUI is _Halite_, according to the project this has been deprecated in favour of SaltPad but I've not manged to get that up and running yet.
 
 The default engine for Halite is CherryPy
