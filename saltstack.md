@@ -17,6 +17,7 @@ Ports `4505` & `4506` need to be opened on the -master host firewall
 
 To start the master service
 Either `systemctl start salt-master` or `rcsalt-master start`
+Enable the master service to start at boot `systemctl enable salt-master.service`
 
 ####WebUI####
 The current WebUI is _Halite_, according to the project this has been deprecated in favour of SaltPad but I've not manged to get that up and running yet.
@@ -72,3 +73,4 @@ The first thing to edit is the location of the _salt-master_, if the salt-master
 
 To start the minion service
 Either `systemctl start salt-minion` or `rcsalt-minion start`
+Enable the minion service to start at boot `systemctl enable salt-minion.service`
