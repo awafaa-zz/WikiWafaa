@@ -18,10 +18,18 @@ Various commands that I find useful but don't use often enough to commit to memo
 
 * [Useful commands][C]
 
+##OpenPhoto/Trovebox##
+Items realating to running [OpenPhoto/Trovebox][4], with an openSUSE slant.
+
+* [OpenPhoto/Trovebox][D]
+
 [i]: GoofyChameleon.png
 [A]: rpmpackaging.md
 [B]: saltstack.md
 [C]: commands.md
+[D]: openphoto.md
+
 [1]: https://www.opensuse.org "The openSUSE Project"
 [2]: https://openbuildservice.org
 [3]: http://www.saltstack.org
+[4]: https://github.com/photo/frontend
