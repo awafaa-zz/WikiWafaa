@@ -7,10 +7,7 @@ To install:
 `zypper in salt-master` This installs the management component, multiple masters can be installed on the network
 `zypper in salt-minion` This installs the client component, you can (should?) install -minion on master nodes
 
-##Configuration##
-All configuration files are stored in `/etc/salt`
-
-###Master###
+##Master Configuration##
 * Edit `/etc/salt/master`
 
 Ports `4505` & `4506` need to be opened on the master firewall
@@ -28,7 +25,7 @@ To enable Halite you need to add a user that can login
 
       external_auth:  
         pam:  
-          mytestuser:  
+          $USER:  
             - .*  
             - '@runner'  
             - '@wheel'
@@ -65,7 +62,7 @@ Bulk accept - `salt-key -A`
 Individually reject - `salt-key -r`
 Bulk reject - `salt-key -R`
 
-###Minion###
+##Minion Configuration##
 * Edit `/etc/salt/minion`
 
 The first thing to edit is the location of the _salt-master_, if the salt-master can not be found the minion service will fail to start.
@@ -75,3 +72,16 @@ The first thing to edit is the location of the _salt-master_, if the salt-master
 To start the minion service
 Either `systemctl start salt-minion` or `rcsalt-minion start`
 Enable the minion service to start at boot `systemctl enable salt-minion.service`
+
+##Usage##
+Regular commands used in Salt
+
+###Adding a repo###
+`sudo salt '*' pkg.mod_repo alias alias=$ALIAS url=$URL enabled=True autorefresh=True`
+
+###Installing packages###
+Installing a single package
+`sudo salt '*' pkg.install $PACKAGE`
+
+Installing multiple packages
+`sudo salt '*' pkg.install pkgs='["$PACKAGE1", "$PACKAGE2", "$PACKAGE3", "$PACKAGE4"]'
