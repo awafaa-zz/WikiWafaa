@@ -84,4 +84,4 @@ Installing a single package
 `sudo salt '*' pkg.install $PACKAGE`
 
 Installing multiple packages
-`sudo salt '*' pkg.install pkgs='["$PACKAGE1", "$PACKAGE2", "$PACKAGE3", "$PACKAGE4"]'
+`sudo salt '*' pkg.install pkgs='["$PACKAGE1", "$PACKAGE2", "$PACKAGE3", "$PACKAGE4"]'`
