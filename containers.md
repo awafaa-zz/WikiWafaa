@@ -86,5 +86,12 @@ There are two ways to create a modified docker image:
 `docker run -t -i opensuse:tumbleweed /bin/bash`
 Make the desired changes.
 `exit`
+Commit the changes
+`docker commit -m "added foo.bar" 432f3f67dece awafaa/tumbleweed:foo`
+
+`-m` - is to specify the commit message
+`432f3f67dece` - is the container id that you are basing on
+`awafaa/tumbleweed` - is the new repository to save it to
+`:foo` - is the new tag
 
 [A]: https://registry.hub.docker.com/
