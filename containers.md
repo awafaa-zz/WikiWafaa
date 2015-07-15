@@ -48,6 +48,8 @@ Once the location is set, enable the systemd service:
 
 You can poweroff and reboot containers within a container session by using `systemctl poweroff` or `systemctl reboot` as well as using _machinectl_
 
+Using `ctrl+]]]` from within the container will kill it immediately.
+
 ##Tooling##
 Most of the core systemd tools work with containers. To utilise them pass the `-M` or `--machine` option.
 `journalctl -M $CONTAINER` - view the journal logs for the container named _$CONTAINER_
