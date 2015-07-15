@@ -75,3 +75,16 @@ If you want your containers to be able to access the external network, you must 
 This option cannot be changed when networking is handled by the Network Manager. In such cases the `/etc/sysconfig/SuSEfirewall2` file needs to be edited by hand to ensure the _FW_ROUTE_ flag is set to yes:
 
 `FW_ROUTE="yes"`
+
+##Getting Docker images##
+Base Docker images can be obtained from the [Docker Hub][A]. The format is _$IMAGE:$TAG_:
+`docker pull opensuse:13.2` or `docker pull opensuse:tumbleweed`
+
+#Modifying a Docker image##
+There are two ways to create a modified docker image:
+1. Run a base image
+`docker run -t -i opensuse:tumbleweed /bin/bash`
+Make the desired changes.
+`exit`
+
+[A]: https://registry.hub.docker.com/
