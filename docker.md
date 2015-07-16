@@ -22,7 +22,7 @@ This option cannot be changed when networking is handled by the Network Manager.
 Base Docker images can be obtained from the [Docker Hub][A]. The format is _$IMAGE:$TAG_:
 `docker pull opensuse:13.2` or `docker pull opensuse:tumbleweed`
 
-#Modifying a Docker image##
+##Modifying a Docker image##
 There are two ways to create a modified docker image:
 1. Run a base image
 `docker run -t -i opensuse:tumbleweed /bin/bash`
@@ -36,4 +36,31 @@ Commit the changes
 `awafaa/tumbleweed` - is the new repository to save it to
 `:foo` - is the new tag
 
+The container id can be obtained from the yast2-docker module.
+
 [A]: https://registry.hub.docker.com/
+
+##Creating a Dockerfile##
+You can leverage Doscker's internal build system by using a _Dockerfile_. This takes the format of `INSTRUCTION argument`
+
+As an example, adding _nginx_ and _salt-minion_ to the official tumbleweed image:
+    # openSUSE with Nginx & salt-minion
+    FROM opensuse:tumbleweed
+    MAINTAINER Andrew Wafaa <the@funkypengu.in>
+    RUN zypper ref
+    RUN zypper -n in nginx salt-minion
+
+Once you have your _Dockerfile_ you can then use `docker build`:
+`docker build -t awafaa/saltynginx:v1 .`
+
+`-t` identifies the new image as belonging to user _awafaa_
+`awafaa/saltynginx` - is the target user / image name
+`:v1` - is the assigned release tag
+`.` - is the path to the _Dockerfile_, `.` signifies current directory
+
+##Setting tags##
+You can add/change tags to existing images using the `docker tag` command:
+
+`docker tag 3jk6s3682e funkypenguin/foo:bar`
+
+This tags the container with the id of _3jk6s3682e_ from the repository _funkypenguin/foo_ with the _bar_ tag.
